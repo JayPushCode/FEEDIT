@@ -12,10 +12,12 @@ cookEl.addEventListener("submit", (e) => {
 });
 
 async function fetchAPI() {
-    const baseURL = "https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=20";
+    const baseURL = `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_key}&from=0&to=20`;
     console.log(baseUrl);
     const response = await fetch(baseURL);
     const data = await response.json();
     generateHTML(data.hits);
     console.log(data);
 }
+
+// https://api.edamam.com/search?q=pizza&app_id=af4ea1f8&app_key=70516f6e9f1db69f66850da24b13cac0&from=0&to=20
