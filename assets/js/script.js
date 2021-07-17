@@ -5,9 +5,9 @@ const APP_key = "70516f6e9f1db69f66850da24b13cac0";
 const takeoutEl = document.getElementById("takeout");
 
 
-cookEl.addEventListener("submit", (e) => {
+cookEl.addEventListener("click", (e) => {
     e.preventDefault();
-    searchQuery = e.target.querySelector("input").value;
+    searchQuery = e.target.querySelector("#foodsearch").value;
     fetchAPI();
 });
 
@@ -41,3 +41,38 @@ const settings = {
 $.ajax(settings).done(function(response) {
     console.log(response);
 });
+
+// Code to Generate Results on Recipe.html
+
+const resultsEl = document.getElementById("recipe-results-container");
+
+
+
+function generateHTML(results) {
+
+    let generatedHTML = "";
+    results.map((result) => {
+      generatedHTML += `
+        <div class="item">
+          <img src="${result.recipe.image}" alt="img">
+          <div class="flex-container">
+            <h1 class="title">${result.recipe.label}</h1>
+            <a class="view-btn" target="_blank" href="${
+              result.recipe.url
+            }">View Recipe</a>
+          </div>
+          <p class="item-data">Calories: ${result.recipe.calories.toFixed(2)}</p>
+          <p class="item-data">Diet label: ${
+            result.recipe.dietLabels.length > 0
+              ? result.recipe.dietLabels
+              : "No Data Found"
+          }</p>
+          <p class="item-data">Health labels: ${result.recipe.healthLabels}</p>
+        </div>
+      `;
+    });
+    resultsEl.innerHTML = generateHTML;
+    
+};
+
+$("#cook").on("click", generateHTML());
