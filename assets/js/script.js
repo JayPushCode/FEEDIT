@@ -15,7 +15,7 @@ function fetchData() {
         }).then(data => {
             console.log(data.hits);
             const html = data.hits.map(data => {
-                    return `<img>${data.recipe.image} alt="Food Image"</img>
+                    return `<img src=${data.recipe.image} alt="Food Image"</img>
                     <div class="flex-container">
                 <h1 class="title">${data.recipe.label}</h1>
                 <a class="view-btn" target="_blank" href="${data.recipe.url}">View Recipe</a>
