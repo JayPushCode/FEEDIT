@@ -15,15 +15,19 @@ function fetchData() {
         }).then(data => {
             console.log(data.hits);
             const html = data.hits.map(data => {
-                    return `<img src=${data.recipe.image} alt="Food Image"</img>
-                    <div class="flex-container">
-                <h1 class="title">${data.recipe.label}</h1>
-                <a class="view-btn" target="_blank" href="${data.recipe.url}">View Recipe</a>
-              </div>
-            <p class="item-data">Calories: ${data.recipe.calories.toFixed(2)}</p>
-            <p class="item-data">Diet label: ${data.recipe.dietLabels.length > 0 ? data.recipe.dietLabels: "No Data Found"}</p>
-            <p class="item-data">Health labels: ${data.recipe.healthLabels}</p>
-            </div>`;
+                    return `
+                <div class="item">
+                    <div> 
+                        <img src=${data.recipe.image} alt="Food Image"</img>
+                        <h1 class="title">${data.recipe.label}</h1>
+                        <a class="view-btn" target="_blank" href="${data.recipe.url}">View Recipe</a>
+                    </div>
+                    <div>
+                    <p class="data">Calories: ${data.recipe.calories.toFixed(2)}</p>
+                    <p class="data">Diet label: ${data.recipe.dietLabels.length > 0 ? data.recipe.dietLabels: "No Data Found"}</p>
+                    <p class="data">Health labels: ${data.recipe.healthLabels}</p>
+                    </div>
+                </div>`;
                 })
                 .join("")
             console.log(html);
