@@ -3,10 +3,15 @@ const takeoutEl = document.getElementById("takeout");
 const APP_ID = "af4ea1f8";
 const APP_key = "70516f6e9f1db69f66850da24b13cac0";
 let searchQuery = document.querySelector("#foodsearch");
+var foodSearch = $('#foodsearch');
+var food = "";
 
 
 function fetchData() {
-    fetch(`https://api.edamam.com/search?q=pizza&app_id=af4ea1f8&app_key=70516f6e9f1db69f66850da24b13cac0&from=0&to=20`)
+
+    var searchUrl = 'https://api.edamam.com/search?q=' + food + '&app_id=af4ea1f8&app_key=70516f6e9f1db69f66850da24b13cac0&from=0&to=20'
+
+    fetch(searchUrl)
         .then(response => {
             if (!response.ok) {
                 throw new Error("Failed to fetch");
@@ -38,9 +43,13 @@ function fetchData() {
 }
 
 
-fetchData();
+// fetchData();
 
-
+$("#cook").click(function(){
+    event.preventDefault();
+    food = foodSearch.val()
+    fetchData();
+});
 
 
 // // https://api.edamam.com/search?q=pizza&app_id=af4ea1f8&app_key=70516f6e9f1db69f66850da24b13cac0&from=0&to=20
