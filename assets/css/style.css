@@ -170,3 +170,12 @@ header h1 {
 p {
     padding: 5px;
 }
+
+#frontPageHeader {
+    position: relative;
+    margin-top: 10%;
+}
+
+#buttoncontainer {
+    font-size: large;
+}
