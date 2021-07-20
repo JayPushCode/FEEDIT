@@ -79,7 +79,8 @@ img {
 #recipe-results-container {
     display: flex;
     flex-wrap: wrap;
-    flex: 1 1 60%
+    background: floralwhite;
+    flex: 1 1 60%;
 }
 
 #Ingredients {
@@ -150,8 +151,9 @@ section {
 }
 
 .ingredients_section {
-    padding: 20px;
-    margin: 20px;
+    padding: 30px;
+    margin: 0px;
+    background-color: aliceblue;
 }
 
 #site-header-text {
@@ -161,12 +163,16 @@ section {
 
 header h1 {
     font-weight: bold;
+    padding: 30px;
+    margin: 0px;
+    background-color: lightskyblue;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 p {
     padding: 5px;
 }
+
 
 #indexbg {
     background: rgb(0,157,230);
@@ -214,3 +220,12 @@ p {
             
   }
 
+
+#frontPageHeader {
+    position: relative;
+    margin-top: 10%;
+}
+
+#buttoncontainer {
+    font-size: large;
+}
