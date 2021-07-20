@@ -19,9 +19,7 @@
 }
 
 img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
+  
     
 }
 
@@ -36,6 +34,10 @@ img {
 }
 
 .item img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+
     width: 100%;
     height: 300px;
     border-radius: 4px;
@@ -170,6 +172,54 @@ header h1 {
 p {
     padding: 5px;
 }
+
+
+#indexbg {
+    background: rgb(0,157,230);
+    background: radial-gradient(circle, rgba(0,157,230,1) 47%, rgba(12,45,167,1) 100%);
+
+  
+}
+
+#indexbg image {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+#img_logo {
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+ 
+}
+
+#frontpagebuttons {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+ }
+
+.frontpagebuttons {
+    justify-content: center;
+    background-color: white;
+
+
+    border: 0;
+    border-radius: 5000px;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    transition: all 0.35s ease;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            
+  }
+
 
 #frontPageHeader {
     position: relative;
