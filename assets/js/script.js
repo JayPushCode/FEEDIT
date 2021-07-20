@@ -38,7 +38,6 @@ function fetchData() {
         console.log(error);
     });
 }
-fetchRecipeData();
 
 // fetchData() from search query on "Show me reccipes" Btn;
 
