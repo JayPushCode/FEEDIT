@@ -25,7 +25,7 @@ img {
 
 .item {
     border-radius: 8px;
-    background-color: rgb(37, 37, 37);
+    background-color:rgb(107 164 199);
     padding: 15px;
     overflow: hidden;
     flex: 1 1 25%;
@@ -167,6 +167,8 @@ header h1 {
     margin: 0px;
     background-color: lightskyblue;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    background: rgb(0,157,230);
+    background: radial-gradient(circle, rgba(0,157,230,1) 47%, rgba(12,45,167,1) 100%);
 }
 
 p {
@@ -192,26 +194,23 @@ p {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10%;
+    margin-bottom: 3%;
  
 }
 
 #frontpagebuttons {
     display: flex;
     flex-wrap: wrap;
-    width: 50%;
+    justify-content: center;
  }
 
 .frontpagebuttons {
-    justify-content: center;
+    flex: .1 1 30px;
     background-color: white;
-
-
     border: 0;
     border-radius: 5000px;
     padding: 1rem 2rem;
     text-transform: uppercase;
-    position: relative;
-    overflow: hidden;
     font-size: 1rem;
     letter-spacing: 2px;
     transition: all 0.35s ease;
@@ -219,8 +218,12 @@ p {
             transform: translateZ(0);
             
   }
-
-
+  .frontpagebuttons:hover {
+  
+    background-color: #ffa600;
+    border: 2px solid #043072;
+  }
+  
 #frontPageHeader {
     position: relative;
     margin-top: 10%;
