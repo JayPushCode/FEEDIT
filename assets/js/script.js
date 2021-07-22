@@ -67,7 +67,7 @@ function fetchRestaurantData() {
 }
 fetchRestaurantData();
 
-
+// Restaurant event listener
 $("#submitBtn").click(function(event) {
     event.preventDefault();
     restaurant = restaurantSearch.val();
