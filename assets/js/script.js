@@ -1,6 +1,5 @@
 const cookEl = document.getElementById("cook");
 const takeoutEl = document.getElementById("takeout");
-let searchQuery = document.querySelector("#foodsearch");
 var foodSearch = $("#foodSearch");
 var restaurantSearch = $("#restaurantSearch")
 var food = "";
