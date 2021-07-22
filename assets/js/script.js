@@ -1,12 +1,17 @@
 const cookEl = document.getElementById("cook");
-const takeoutEl = document.getElementById("takeout");
+const takeoutEl = document.getElementById("submitBtn");
 var foodSearch = $("#foodSearch");
 var restaurantSearch = $("#restaurantSearch");
+var zipCode = $("#zipCodeSearch");
+var zipSearch = "";
 var food = "";
 var restaurant = "";
+const recipeKey = "70516f6e9f1db69f66850da24b13cac0";
+const recipeId = "af4ea1f8";
+const restaurantKey = "abedd9965f4dfa8202f12142a2545cf8";
 
 function fetchData() {
-    fetch(`https://api.edamam.com/search?q=${food}&app_id=af4ea1f8&app_key=70516f6e9f1db69f66850da24b13cac0&from=0&to=20`)
+    fetch(`https://api.edamam.com/search?q=${food}&app_id=${recipeId}&app_key=${recipeKey}&from=0&to=20`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Failed to fetch data");
@@ -41,15 +46,15 @@ function fetchData() {
 }
 
 // fetchData() from search query on "Show me reccipes" Btn;
-$("#cook").click(function() {
+$("#cook").click(function(event) {
     event.preventDefault();
     food = foodSearch.val();
     fetchData();
 });
 
 // Resturant API
-function fetchResturantData() {
-    fetch(`https://api.documenu.com/v2/restaurants/search/fields?restaurant_name=${restaurant}&key=abedd9965f4dfa8202f12142a2545cf8`)
+function fetchRestaurantData() {
+    fetch(`https://api.documenu.com/v2/restaurants/search/fields?restaurant_name=${restaurant}&zip_code=${zipSearch}&key=${restaurantKey}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Failed to fetch data");
@@ -57,7 +62,15 @@ function fetchResturantData() {
             return response.json();
         })
         .then((data) => {
-            console.log(data.hits);
+            console.log(data);
         });
 }
-fetchResturantData();
+fetchRestaurantData();
+
+// Restaurant event listener
+$("#submitBtn").click(function(event) {
+    event.preventDefault();
+    restaurant = restaurantSearch.val();
+    zipSearch = zipCode.val();
+    fetchRestaurantData();
+});
