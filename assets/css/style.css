@@ -18,10 +18,6 @@
     align-self: flex-end;
 }
 
-img {
-  
-    
-}
 
 .item {
     border-radius: 8px;
@@ -234,12 +230,12 @@ p {
     font-size: large;
 }
 
-/* Mobile Fix for Index */
-@media screen and (max-width: 768px) {
-  
+
+/* @media screen and (max-width: 768px) { */
+    @media screen and (max-width: 1600px) {
+  /* Mobile Fix for Index */
     #frontPageHeader {
         position: relative;
-      
     }
     #img_logo {
        
@@ -258,16 +254,71 @@ p {
     #frontpagebuttons {
        margin: 50px;
         flex-wrap: wrap;
-        flex-direction: column;
-  
-       
+        flex-direction: column; 
      }
-    
     .frontpagebuttons {
-
         margin: 10px;
-        
       }
  
-  }
-  
+      /* Fix for Recipt Page */
+      #sitemain {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    #recipe-sidebar {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    #cook {
+        width: 100%;
+
+    }
+    #recipe-results-containter {
+        display: flex;
+        flex-direction: row !important;
+    }
+    #sitemain {
+        display: flex;
+    }
+    .item {
+        flex: 1 1 100%;
+        width: 80%;
+        border-radius: 8px;
+        background-color: rgb(107 164 199);
+        padding: 1px;
+        overflow: hidden;
+        margin: 0px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: white;
+    }
+    .item img {
+        border: 10px solid #2a3e4b;
+    }
+    .item h1 {
+        text-align: center;
+        background: #2a3e4b;
+        padding: 5px 5px 18px 5px;
+    }
+    .item a {
+        display: flex;
+
+    }
+    .view-btn {
+        text-decoration: none;
+        text-align: center;
+        width: 130px;
+        padding: 10px 10px 10px 10px;
+        background-color: #404041;
+        color: whitesmoke;
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 10px 10px 10px 28%;
+        border-radius: 4px;
+        align-self: flex-end;
+        justify-content: center;
+    }
+}
