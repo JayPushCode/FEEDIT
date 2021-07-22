@@ -161,6 +161,7 @@ header h1 {
     font-weight: bold;
     padding: 30px;
     margin: 0px;
+    width: 100%;
     background-color: lightskyblue;
     font-family: Georgia, 'Times New Roman', Times, serif;
     background: rgb(0,157,230);
