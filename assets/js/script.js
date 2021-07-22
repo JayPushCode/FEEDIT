@@ -26,7 +26,7 @@ function fetchData() {
                           data.recipe.url
                         }">View Recipe</a>
                     </div>
-                    <div>
+                    <div class="data-details">
                     <p class="data">Calories: ${data.recipe.calories.toFixed(
                       2
                     )}</p>
