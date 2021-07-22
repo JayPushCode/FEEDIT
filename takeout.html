@@ -17,56 +17,75 @@
 
 <body>
 
-    <header id="site-header-text" class="border d-flex justify-content-center">
-        <h1>What are you craving? (Takeout site)</h1>
+    <header id="site-header-text" class="">
+        <h1>What are you craving?</h1>
     </header>
     
 
-    <section class="d-flex flex-row">
+    <div id="sitemain">
 
-        <!-- search column -->
-        <div class="border d-flex flex-column w-25 ingredients_section">
-            <div>
-                <br>
-                <input id="restaurantSearch" type="text" placeholder="Search" class="w-100">
-                <br><br>
-                <div class="d-flex flex-row">
-                    <button class="d-flex justify-content-center w-50" id="submitBtn">I'm Hungry</button>
-                    <button class="w-50"><a href="recipe.html">Let's Cook!!</a></button>
+        <section class="ingredients_section">
+
+            
+            <div id="recipe-sidebar">
+
+                <!-- Search Area with the search bar and buttons -->
+                <div id="searchArea">
+                    <br>
+                    <p><strong>Enter something you're craving here:</strong></p>
+                    <input id="restaurantSearch" type="text" placeholder="What's Your Craving?..." class="w-100">
+                    <br>
+
+                    <div id="btnSection">
+                        <button id="submitBtn" class="button button-rounded-hover"> I'm Hungry</button>
+                        <button class="*"><a href="recipe.html">Let's Cook!!</a></button>
+                    </div>
+
                 </div>
-            </div>
 
-            <div class="d-flex flex-column justify-content-center">
-                <br>
-                <button class="btn btn-info btn-block">Italian</button>
-                <br>
-                <button class="btn btn-info btn-block">Mexican</button>
-                <br>
-                <button class="btn btn-info btn-block">Mediterranean</button>
-                <br>
-                <button class="btn btn-info btn-block">Japanese</button>
-                <br>
-                <button class="btn btn-info btn-block">Chinese</button>
-                <br>
-                <button class="btn btn-info btn-block">Greek</button>
-                <br>
-                <button class="btn btn-info btn-block">Korean</button>
-                <br>
-                <button class="btn btn-info btn-block">Thai</button>
-                <br>
-                <button class="btn btn-info btn-block">Cajun</button>
-                <br>
-                <button class="btn btn-info btn-block">Desserts</button>
-                <br>
-            </div>
+                <!-- class="d-flex flex-column" -->
 
+                <hr>
+    
+                <div class="d-flex flex-column justify-content-center">
+                    <br>
+                    <button class="btn btn-info btn-block">Indian</button>
+                    <br>
+                    <button class="btn btn-info btn-block">Italian</button>
+                    <br>
+                    <button class="btn btn-info btn-block">Mexican</button>
+                    <br>
+                    <button class="btn btn-info btn-block">Mediterranean</button>
+                    <br>
+                    <button class="btn btn-info btn-block">Japanese</button>
+                    <br>
+                    <button class="btn btn-info btn-block">Chinese</button>
+                    <br>
+                    <button class="btn btn-info btn-block">Greek</button>
+                    <br>
+                    <button class="btn btn-info btn-block">Korean</button>
+                    <br>
+                    <button class="btn btn-info btn-block">Thai</button>
+                    <br>
+                    <button class="btn btn-info btn-block">Cajun</button>
+                    <br>
+                    <button class="btn btn-info btn-block">Desserts</button>
+                    <br>
+                    <button class="btn btn-info btn-block">Vietnamese</button>
+                    <br>
+                </div>
+    
+            </div>
+    
+        </section>
+
+        <div class="border" id="recipe-results-container">
+    
         </div>
 
-        <div class="border w-100 d-flex justify-content-center" id="recipe-results-container">
+    </div>
 
-        </div>
-
-    </section>
+    
 
     <!-- <main>
         
