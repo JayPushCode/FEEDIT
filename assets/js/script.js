@@ -1,6 +1,6 @@
 const recipeKey = "70516f6e9f1db69f66850da24b13cac0";
 const recipeId = "af4ea1f8";
-const restaurantKey = "abedd9965f4dfa8202f12142a2545cf8";
+const restaurantKey = "0d4376afb618b450ddd178269816835b";
 const cookEl = $("#cook");
 const takeoutEl = $("#submitBtn");
 var foodSearch = $("#foodSearch");
@@ -9,9 +9,8 @@ var food = "";
 var restaurant = "";
 
 // Recipe API
-
-function fetchData() {
-
+function fetchRecipeData() {
+    // https://api.edamam.com/search?q=pizza&app_id=af4ea1f8&app_key=70516f6e9f1db69f66850da24b13cac0&from=0&to=20
     fetch(`https://api.edamam.com/search?q=${food}&app_id=${recipeId}&app_key=${recipeKey}&from=0&to=20`)
         .then((response) => {
             if (!response.ok) {
@@ -45,21 +44,20 @@ function fetchData() {
             console.log(error);
         });
 }
-fetchData();
+fetchRecipeData();
 
 // Recipe event listener
 $("#cook").click(function(event) {
     event.preventDefault();
     food = foodSearch.val();
-    fetchData();
+    fetchRecipeData();
 });
 
 // Resturant API
 function fetchRestaurantData() {
-
+    // https://api.documenu.com/v2/restaurants/search/fields?restaurant_name=subway&zip_code=28409&key=0d4376afb618b450ddd178269816835b
     fetch(`https://api.documenu.com/v2/restaurants/search/fields?restaurant_name=${restaurant}&&key=${restaurantKey}`)
-
-    .then((response) => {
+        .then((response) => {
             if (!response.ok) {
                 throw new Error("Failed to fetch data");
             }
@@ -78,5 +76,3 @@ $("#submitBtn").click(function(event) {
     zipSearch = zipCode.val();
     fetchRestaurantData();
 });
-
-// https://api.documenu.com/v2/restaurants/search/fields?restaurant_name=${restaurant}&zip_code=${zipSearch}&key=${restaurantKey}
