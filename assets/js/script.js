@@ -1,12 +1,11 @@
 const recipeKey = "70516f6e9f1db69f66850da24b13cac0";
 const recipeId = "af4ea1f8";
-const restaurantKey = "0d4376afb618b450ddd178269816835b";
 const cookEl = $("#cook");
 const takeoutEl = $("#submitBtn");
+const drinkEl = $("#drink");
 var foodSearch = $("#foodSearch");
-var restaurantSearch = $("#restaurantSearch");
 var food = "";
-var restaurant = "";
+
 
 // Recipe API
 function fetchRecipeData() {
@@ -67,8 +66,6 @@ $("#cook").click(function (event) {
   fetchRecipeData();
 });
 
-
-
 // Drinks API
 function fetchDrinksData() {
   // https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
@@ -86,4 +83,9 @@ function fetchDrinksData() {
 }
 fetchDrinksData();
 
-
+// Recipe event listener
+$("#cook").click(function (event) {
+    event.preventDefault();
+    food = foodSearch.val();
+    fetchRecipeData();
+  });
