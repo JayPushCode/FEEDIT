@@ -10,7 +10,7 @@ var restaurant = "";
 
 // Recipe API
 
-function fetchRecipeData() {
+function fetchData() {
 
     fetch(`https://api.edamam.com/search?q=${food}&app_id=${recipeId}&app_key=${recipeKey}&from=0&to=20`)
         .then((response) => {
@@ -45,7 +45,7 @@ function fetchRecipeData() {
             console.log(error);
         });
 }
-fetchRecipeData();
+fetchData();
 
 // Recipe event listener
 $("#cook").click(function(event) {
@@ -59,7 +59,7 @@ function fetchRestaurantData() {
 
     fetch(`https://api.documenu.com/v2/restaurants/search/fields?restaurant_name=${restaurant}&&key=${restaurantKey}`)
 
-        .then((response) => {
+    .then((response) => {
             if (!response.ok) {
                 throw new Error("Failed to fetch data");
             }
