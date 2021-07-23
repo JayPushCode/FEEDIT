@@ -67,23 +67,7 @@ $("#cook").click(function (event) {
   fetchRecipeData();
 });
 
-// Resturant API
-function fetchRestaurantData() {
-  // https://api.documenu.com/v2/restaurants/search/fields?restaurant_name=subway&zip_code=28409&key=0d4376afb618b450ddd178269816835b
-  fetch(
-    `https://api.documenu.com/v2/restaurants/search/fields?restaurant_name=${restaurant}&&key=${restaurantKey}`
-  )
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-    });
-}
-fetchRestaurantData();
+
 
 // Drinks API
 function fetchDrinksData() {
@@ -102,10 +86,4 @@ function fetchDrinksData() {
 }
 fetchDrinksData();
 
-// Restaurant event listener
-$("#submitBtn").click(function (event) {
-  event.preventDefault();
-  restaurant = restaurantSearch.val();
-  zipSearch = zipCode.val();
-  fetchRestaurantData();
-});
+
