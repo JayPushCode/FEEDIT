@@ -1,17 +1,17 @@
-const cookEl = document.getElementById("cook");
-const takeoutEl = document.getElementById("submitBtn");
-var foodSearch = $("#foodSearch");
-var restaurantSearch = $("#restaurantSearch");
-var zipCode = $("#zipCodeSearch");
-var zipSearch = "";
-var food = "";
-var restaurant = "";
 const recipeKey = "70516f6e9f1db69f66850da24b13cac0";
 const recipeId = "af4ea1f8";
 const restaurantKey = "abedd9965f4dfa8202f12142a2545cf8";
+const cookEl = $("#cook");
+const takeoutEl = $("#submitBtn");
+var foodSearch = $("#foodSearch");
+var restaurantSearch = $("#restaurantSearch");
+var food = "";
+var restaurant = "";
 
 // Recipe API
-function fetchData() {
+
+function fetchRecipeData() {
+
     fetch(`https://api.edamam.com/search?q=${food}&app_id=${recipeId}&app_key=${recipeKey}&from=0&to=20`)
         .then((response) => {
             if (!response.ok) {
@@ -45,8 +45,9 @@ function fetchData() {
             console.log(error);
         });
 }
+fetchRecipeData();
 
-// fetchData() from search query on "Show me reccipes" Btn;
+// Recipe event listener
 $("#cook").click(function(event) {
     event.preventDefault();
     food = foodSearch.val();
@@ -55,7 +56,9 @@ $("#cook").click(function(event) {
 
 // Resturant API
 function fetchRestaurantData() {
-    fetch(`https://api.documenu.com/v2/restaurants/search/fields?exact=true&cuisine=italian&key=d76490df9b1c69f0cdda1c89168eb10d`)
+
+    fetch(`https://api.documenu.com/v2/restaurants/search/fields?restaurant_name=${restaurant}&&key=${restaurantKey}`)
+
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Failed to fetch data");
