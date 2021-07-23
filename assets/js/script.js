@@ -10,6 +10,7 @@ const recipeKey = "70516f6e9f1db69f66850da24b13cac0";
 const recipeId = "af4ea1f8";
 const restaurantKey = "abedd9965f4dfa8202f12142a2545cf8";
 
+// Recipe API
 function fetchData() {
     fetch(`https://api.edamam.com/search?q=${food}&app_id=${recipeId}&app_key=${recipeKey}&from=0&to=20`)
         .then((response) => {
@@ -23,8 +24,8 @@ function fetchData() {
             const html = data.hits
                 .map((data) => {
                     return ` <div class="item">
-                    <div> 
-                        <img src=${data.recipe.image} alt="Food Image"</img>
+                    <div id="imgBx"> 
+                        <img id="resultImg" src=${data.recipe.image} alt="Food Image"</img>
                         <h1 class="title">${data.recipe.label}</h1>
                         <a class="view-btn" target="_blank" href="${data.recipe.url}">View Recipe</a>
                     </div>
@@ -37,7 +38,7 @@ function fetchData() {
                 })
                 .join("");
             document
-                .getElementById("recipe-results-container")
+                .getElementById("results-container")
                 .insertAdjacentHTML("afterbegin", html);
         })
         .catch((error) => {
@@ -54,7 +55,7 @@ $("#cook").click(function(event) {
 
 // Resturant API
 function fetchRestaurantData() {
-    fetch(`https://api.documenu.com/v2/restaurants/search/fields?restaurant_name=${restaurant}&zip_code=${zipSearch}&key=${restaurantKey}`)
+    fetch(`https://api.documenu.com/v2/restaurants/search/fields?exact=true&cuisine=italian&key=d76490df9b1c69f0cdda1c89168eb10d`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Failed to fetch data");
@@ -74,3 +75,5 @@ $("#submitBtn").click(function(event) {
     zipSearch = zipCode.val();
     fetchRestaurantData();
 });
+
+// https://api.documenu.com/v2/restaurants/search/fields?restaurant_name=${restaurant}&zip_code=${zipSearch}&key=${restaurantKey}
