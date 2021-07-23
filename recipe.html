@@ -17,35 +17,37 @@
 
 <body>
 
-    <header id="site-header-text" class="border">
+    <header id="site-header-text">
         <h1>What's cooking?</h1>
     </header>
+
 
     <div id="sitemain">
 
         <section class="ingredients_section">
 
-            <!-- search column -->
             <div id="recipe-sidebar">
 
-                <div>
+                <!-- Search Area with the search bar and buttons -->
+                <div id="searchArea">
                     <br>
                     <p><strong>Enter something you're craving here:</strong></p>
                     <input id="foodSearch" type="text" placeholder="What's Your Craving?..." class="w-100">
-                    <br><br>
+                    <br>
 
-                    <button id="cook" class="button button-rounded-hover"> Show Me Recipes </button>
-                    <div class="d-flex flex-column">
-
+                    <div id="btnSection">
+                        <button id="cook" class="button button-rounded-hover"> Show Me Recipes </button>
                         <button class="*"><a href="takeout.html">Let's Takeout!!</a></button>
                     </div>
-
+                    
                 </div>
+
+                <!-- This area is below the search area -->
 
                 <hr>
 
                 <!-- Ingredient List -->
-                <div class="Indredients">
+                <!-- <div class="Indredients">
                     <p class="*">Meats</p>
                     <div class="*">
                         <input type="checkbox" id="i1">
@@ -155,23 +157,16 @@
                     </div>
                     <br>
                     <br>
-
-                </div>
-
+                </div> --->
 
             </div>
 
+        </section>
 
 
+        <div class="border" id="results-container">
 
-
-    </div>
-    </section>
-
-
-    <div class="border" id="recipe-results-container">
-
-    </div>
+        </div>
 
     </div>
 

@@ -4,55 +4,108 @@
     box-sizing: border-box;
 }
 
+body {
+    background: floralwhite;
+}
+
+/*  Below here stylizes the Header of both the Recipe and HTML website */
+#site-header-text {
+    padding: 30px;
+    background-color: lightskyblue;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background: radial-gradient(circle, rgba(0,157,230,1) 47%, rgba(12,45,167,1) 100%);
+    display: flex;
+    justify-content: center;
+}
+
+/* These stylize the main body */
+#sitemain {
+    display: flex;
+    flex-direction: row;
+}
+
+/* This stylizes the area where the results are displayed */
+#results-container {
+    display: flex;
+    flex-wrap: wrap;
+    background: floralwhite;
+    flex: 1 1 60%;
+}
+
+/* This stylizes the searchArea with Buttons */
+#searchArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#btnSection {
+    display: flex;
+    flex-direction: column;
+}
+
+/* This is specifically for the takeout where the cuisine section */
+#cuisineSect {
+    font-size: 10px;
+    padding: 20px;
+}
+
+/* This is where all the results will show on the main page */
+/* This is for the recipe site */
+/* I believe there classes are called item */
+/* this is the main body of each results */
+.item {
+    border-radius: 8px;
+    background-color: rgb(107 164 199);
+    padding: 15px;
+    overflow: hidden;
+    flex: 1 1 25%;
+    display: flex;
+    margin: 20px;
+    color: white;
+    flex-direction: column;
+}
+
+/* This customizes the image box that includes the image the header
+and the view button */
+#imgBx {
+    display: flex;
+    flex-direction: column;
+}
+
+/* This customizes the different images in the results */
+#resultImg {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+    border-radius: 4px;
+}
+
+/* This is the header or the title of each result */
+.item h1 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+/* This customizes the view recipe button */
 .view-btn {
     text-decoration: none;
     text-align: center;
-    width: 130px;
-    padding: 10px 10px 10px 10px ;
+    width: 100%;
+    padding: 10px 10px 10px 10px;
     background-color: #404041;
     color: whitesmoke;
     font-size: 1rem;
     font-weight: 600;
-    margin: 20px 20px 80px 0px;
     border-radius: 4px;
-    align-self: flex-end;
+    align-self: center;
 }
 
-
-.item {
-    border-radius: 8px;
-    background-color:rgb(107 164 199);
-    padding: 15px;
-    overflow: hidden;
-    flex: 1 1 25%;
-    margin: 20px;
-    color: white;
-}
-
-.item img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-
-    width: 100%;
-    height: 300px;
-    border-radius: 4px;
-
-}
-
-.item h1 {
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.flex-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-
-}
-
+/* This customizes the data in the results in the result boxes */
 .item data {
     color: whitesmoke;
     display: block;
@@ -61,7 +114,15 @@
     letter-spacing: 0.05rem;
     line-height: 2rem;
     padding: 20px 40px 20px 20px;
-   
+}
+
+
+
+
+.flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .container {
@@ -70,13 +131,6 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-}
-
-#recipe-results-container {
-    display: flex;
-    flex-wrap: wrap;
-    background: floralwhite;
-    flex: 1 1 60%;
 }
 
 #Ingredients {
@@ -142,29 +196,11 @@ section {
     opacity: 0.25;
   }
   
-#sitemain {
-    display: flex;
-}
-
 .ingredients_section {
     padding: 30px;
     margin: 0px;
     background-color: aliceblue;
-}
-
-#site-header-text {
-    text-align: center;
-    font-weight: bold;
-}
-
-header h1 {
-    font-weight: bold;
-    padding: 30px;
-    margin: 0px;
-    background-color: lightskyblue;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    background: rgb(0,157,230);
-    background: radial-gradient(circle, rgba(0,157,230,1) 47%, rgba(12,45,167,1) 100%);
+    width: 381px;
 }
 
 p {
@@ -231,8 +267,10 @@ p {
 }
 
 
+
+
 /* @media screen and (max-width: 768px) { */
-    @media screen and (max-width: 1600px) {
+    @media screen and (max-width: 768px) {
   /* Mobile Fix for Index */
     #frontPageHeader {
         position: relative;
