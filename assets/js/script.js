@@ -51,6 +51,7 @@ function fetchData() {
 
 // This preloads the website with recipes with the search criteria of popular recipes
 // This keeps page filled instead of empty
+// It will get overwritten when users enter a a new food to search
 fetchData();
 
 // Recipe event listener
@@ -73,8 +74,25 @@ function fetchDrinksData() {
             }
             return response.json();
         })
-        .then((data) => {
+        .then(function(data) {
             console.log(data.drinks);
+            const html = data.drinks;
+                data.drinks.map((data) => {
+
+                    return ` <div class="item">
+                    <div id="imgBx"> 
+                        <h1 class="title">${data.drinks.strDrink}</h1>
+                    </div>
+
+                </div>`;
+                })
+                .join("");
+            document
+                .getElementById("results-container")
+                .insertAdjacentHTML("afterbegin", html);
+        })
+        .catch((error) => {
+            console.log(error);
         });
 }
 fetchDrinksData();
