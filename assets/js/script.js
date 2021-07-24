@@ -1,12 +1,10 @@
 const recipeKey = "70516f6e9f1db69f66850da24b13cac0";
 const recipeId = "af4ea1f8";
-const restaurantKey = "abedd9965f4dfa8202f12142a2545cf8";
 const cookEl = $("#cook");
 const takeoutEl = $("#submitBtn");
+const drinkEl = $("#drink");
 var foodSearch = $("#foodSearch");
-var restaurantSearch = $("#restaurantSearch");
 var food = "";
-var restaurant = "";
 
 // Recipe API
 function fetchData() {
@@ -25,16 +23,39 @@ function fetchData() {
             const html = data.hits
                 .map((data) => {
                     return ` <div class="item">
+
                     <div id="imgBx"> 
-                        <img id="resultImg" src=${data.recipe.image} alt="Food Image"</img>
+                       
+                        <img id="resultImg" src=${
+                          data.recipe.image
+                        } alt="Food Image"</img>
+
                         <h1 class="title">${data.recipe.label}</h1>
-                        <a class="view-btn" target="_blank" href="${data.recipe.url}">View Recipe</a>
+
+                        <a class="view-btn" target="_blank" href="${
+                          data.recipe.url
+                        }">View Recipe</a>
+
                     </div>
+
                     <div class="data-details">
-                    <p class="data">Calories: ${data.recipe.calories.toFixed(2)}</p>
-                    <p class="data">Diet label: ${data.recipe.dietLabels.length > 0? data.recipe.dietLabels: "No Data Found"}</p>
-                    <p class="data">Health labels: ${data.recipe.healthLabels}</p>
+                    
+                    <p class="data">Calories: ${data.recipe.calories.toFixed(
+                      2
+                    )}</p>
+
+                    <p class="data">Diet label: ${
+                      data.recipe.dietLabels.length > 0
+                        ? data.recipe.dietLabels
+                        : "No Data Found"
+                    }</p>
+
+                    <p class="data">Health labels: ${
+                      data.recipe.healthLabels
+                    }</p>
+
                     </div>
+
                 </div>`;
                 })
 
@@ -48,83 +69,38 @@ function fetchData() {
             console.log(error);
         });
 }
-fetchData();
 
 // Recipe event listener
-$("#cook").click(function(event) {
-    event.preventDefault();
-    food = foodSearch.val();
-    fetchData();
+$("#cook").click(function (event) {
+  event.preventDefault();
+  food = foodSearch.val();
+  fetchData();
 });
 
 
-// This is for the drink API
-function fetchDrink () {
-    
-    var test = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita';
 
-    fetch(test)
 
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error("Failed to fetch data");
-            }
-            return response.json();
-        })
+// Drinks API
+function fetchDrinksData() {
+  // https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita`)
 
-        .then((data) => {
-            console.log(data.hits);
-            const test2 = data.hits
-                .map((data) => {
-                    return ` <div class="item">
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      return response.json();
+    })
 
-                    <p class="data">Health labels: hi</p>
+    .then((data) => {
+      console.log(data.drinks);
 
-                </div>`;
-                })
+      for (var a = 0; a <data.drinks.length; a++) {
+          console.log(a);
+      }
+      
+    });
 
-                .join("");
-            document
-                .getElementById("drink-results")
-                .insertAdjacentHTML("afterbegin", test2);
-        })
-
-        .catch((error) => {
-            console.log(error);
-        });
 }
+fetchDrinksData();
 
-fetchDrink();
-
-// $("#submitBtn").click(function(event) {
-//     event.preventDefault();
-//     fetchDrink();
-// });
-
-
-// Resturant API
-// function fetchRestaurantData() {
-
-//     fetch(`https://api.documenu.com/v2/restaurants/search/fields?restaurant_name=${restaurant}&&key=${restaurantKey}`)
-
-//         .then((response) => {
-//             if (!response.ok) {
-//                 throw new Error("Failed to fetch data");
-//             }
-//             return response.json();
-//         })
-//         .then((data) => {
-//             console.log(data);
-//         });
-// }
-// fetchRestaurantData();
-
-// // Restaurant event listener
-// $("#submitBtn").click(function(event) {
-//     event.preventDefault();
-//     restaurant = restaurantSearch.val();
-//     zipSearch = zipCode.val();
-//     fetchRestaurantData();
-// });
-
-// https://api.documenu.com/v2/restaurants/search/fields?restaurant_name=${restaurant}&zip_code=${zipSearch}&key=${restaurantKey}
