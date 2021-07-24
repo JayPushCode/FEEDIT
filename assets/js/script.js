@@ -5,6 +5,9 @@ const takeoutEl = $("#submitBtn");
 const drinkEl = $("#drink");
 var foodSearch = $("#foodSearch");
 var food = "";
+var drinkSearch = $("#drinkSearch");
+var drink = "";
+
 
 // Recipe API
 function fetchRecipeData() {
@@ -69,6 +72,13 @@ function fetchDrinksData() {
         });
 }
 fetchDrinksData();
+
+// Drinks event listener
+$("#drink").click(function(event) {
+    event.preventDefault();
+    drink = drinkSearch.val();
+    fetchDrinksData();
+});
 
 // Recipe event listener
 $("#cook").click(function(event) {
