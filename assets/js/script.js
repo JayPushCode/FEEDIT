@@ -4,8 +4,8 @@ const cookEl = $("#cook");
 const takeoutEl = $("#submitBtn");
 const drinkEl = $("#drink");
 var foodSearch = $("#foodSearch");
-var food = "";
-var drinkSearch = $("#drinkSearch");
+var food = "popular";
+var drinkSearch = $("#drinksSearch");
 var drink = "";
 
 
@@ -21,7 +21,6 @@ function fetchData() {
             return response.json();
         })
         .then((data) => {
-            console.log(data.hits);
             const html = data.hits
                 .map((data) => {
                     return ` <div class="item">
@@ -41,7 +40,7 @@ function fetchData() {
                 })
                 .join("");
             document
-                .getElementById("results-container")
+                .getElementById("recipe-results-container")
                 .insertAdjacentHTML("afterbegin", html);
         })
         .catch((error) => {
@@ -66,47 +65,50 @@ $("#cook").click(function(event) {
 // Drinks API
 function fetchDrinksData() {
     // https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
-    `)
+    drinkURL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + drink;
+
+    fetch(drinkURL)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Failed to fetch data");
             }
             return response.json();
         })
-        .then(function(data) {
-            console.log(data.drinks);
-            const html = data.drinks;
-                data.drinks.map((data) => {
-
+        .then((data) => {
+            let drinks = data.drinks
+            console.log(drinks)
+            let html = drinks.map((data) => {
                     return ` <div class="item">
                     <div id="imgBx"> 
-                        <h1 class="title">${data.drinks.strDrink}</h1>
+                      <img id="resultImg" src=${data.strDrinkThumb} alt="Drink Image"</img>
+                      <h1 class="title">${data.strDrink}</h1>
                     </div>
-
+                    <div class="data-details">
+                      <p class="data">Ingredient 1: ${data.strMeasure1}: ${data.strIngredient1}</p>
+                      <p class="data">Ingredient 2: ${data.strMeasure2}: ${data.strIngredient2}</p>
+                      <p class="data">Ingredient 3: ${data.strMeasure3}: ${data.strIngredient3}</p>
+                      <p class="data">Ingredient 4: ${data.strMeasure4}: ${data.strIngredient4}</p>
+                      <p class="data">Ingredient 5: ${data.strMeasure5}: ${data.strIngredient5}</p>
+                    </div>
+                    <div class="instructions">
+                      <p class="data">Instructions: ${data.strInstructions}</p>
+                    </div>
                 </div>`;
                 })
                 .join("");
             document
-                .getElementById("results-container")
+                .getElementById("drinks-results-container")
                 .insertAdjacentHTML("afterbegin", html);
         })
         .catch((error) => {
             console.log(error);
         });
 }
-fetchDrinksData();
+// fetchDrinksData();
 
 // Drinks event listener
 $("#drink").click(function(event) {
     event.preventDefault();
     drink = drinkSearch.val();
     fetchDrinksData();
-});
-
-// Recipe event listener
-$("#cook").click(function(event) {
-    event.preventDefault();
-    food = foodSearch.val();
-    fetchRecipeData();
 });

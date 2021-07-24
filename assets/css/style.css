@@ -25,7 +25,7 @@ body {
 }
 
 /* This stylizes the area where the results are displayed */
-#results-container {
+#recipe-results-container, #drinks-results-container {
     display: flex;
     flex-wrap: wrap;
     background: floralwhite;
