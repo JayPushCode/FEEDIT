@@ -9,16 +9,17 @@ var food = "";
 var restaurant = "";
 
 // Recipe API
-
-function fetchRecipeData() {
+function fetchData() {
 
     fetch(`https://api.edamam.com/search?q=${food}&app_id=${recipeId}&app_key=${recipeKey}&from=0&to=20`)
+        
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Failed to fetch data");
             }
             return response.json();
         })
+
         .then((data) => {
             console.log(data.hits);
             const html = data.hits
@@ -36,16 +37,18 @@ function fetchRecipeData() {
                     </div>
                 </div>`;
                 })
+
                 .join("");
             document
                 .getElementById("results-container")
                 .insertAdjacentHTML("afterbegin", html);
         })
+
         .catch((error) => {
             console.log(error);
         });
 }
-fetchRecipeData();
+fetchData();
 
 // Recipe event listener
 $("#cook").click(function(event) {
@@ -54,10 +57,13 @@ $("#cook").click(function(event) {
     fetchData();
 });
 
-// Resturant API
-function fetchRestaurantData() {
 
-    fetch(`https://api.documenu.com/v2/restaurants/search/fields?restaurant_name=${restaurant}&&key=${restaurantKey}`)
+// This is for the drink API
+function fetchDrink () {
+    
+    var test = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita';
+
+    fetch(test)
 
         .then((response) => {
             if (!response.ok) {
@@ -65,18 +71,60 @@ function fetchRestaurantData() {
             }
             return response.json();
         })
+
         .then((data) => {
-            console.log(data);
+            console.log(data.hits);
+            const test2 = data.hits
+                .map((data) => {
+                    return ` <div class="item">
+
+                    <p class="data">Health labels: hi</p>
+
+                </div>`;
+                })
+
+                .join("");
+            document
+                .getElementById("drink-results")
+                .insertAdjacentHTML("afterbegin", test2);
+        })
+
+        .catch((error) => {
+            console.log(error);
         });
 }
-fetchRestaurantData();
 
-// Restaurant event listener
-$("#submitBtn").click(function(event) {
-    event.preventDefault();
-    restaurant = restaurantSearch.val();
-    zipSearch = zipCode.val();
-    fetchRestaurantData();
-});
+fetchDrink();
+
+// $("#submitBtn").click(function(event) {
+//     event.preventDefault();
+//     fetchDrink();
+// });
+
+
+// Resturant API
+// function fetchRestaurantData() {
+
+//     fetch(`https://api.documenu.com/v2/restaurants/search/fields?restaurant_name=${restaurant}&&key=${restaurantKey}`)
+
+//         .then((response) => {
+//             if (!response.ok) {
+//                 throw new Error("Failed to fetch data");
+//             }
+//             return response.json();
+//         })
+//         .then((data) => {
+//             console.log(data);
+//         });
+// }
+// fetchRestaurantData();
+
+// // Restaurant event listener
+// $("#submitBtn").click(function(event) {
+//     event.preventDefault();
+//     restaurant = restaurantSearch.val();
+//     zipSearch = zipCode.val();
+//     fetchRestaurantData();
+// });
 
 // https://api.documenu.com/v2/restaurants/search/fields?restaurant_name=${restaurant}&zip_code=${zipSearch}&key=${restaurantKey}
