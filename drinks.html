@@ -18,7 +18,10 @@
 <body>
 
     <header id="site-header-text">
-        <h1>Thirsty?</h1>
+        <h1>Thirsty?
+            
+        </h1>
+        
     </header>
 
 
@@ -31,11 +34,13 @@
                 <!-- Search Area with the search bar and buttons -->
                 <div id="searchArea">
                     <br>
+                    
                     <p><strong>Enter your favorite drink here:</strong></p>
                     <input id="drinksSearch" type="text" placeholder="Are you 21 or over?..." class="w-100">
                     <br>
 
                     <div id="btnSection">
+                        <button id="modal_opener" class="button button-rounded-hover">Click Me if you're not over 21! I Don't Bite... 😛</button>
                         <button id="drink" class="button button-rounded-hover"> Show Me Alcoholic Beverages </button>
                         <button class="*"><a href="recipe.html">Let's Cook!!</a></button>
                     </div>
@@ -49,120 +54,10 @@
                 <div id="disclaimer">
                     <h2>Disclaimer:</h2>
                     <p>Warning: Many of the drinks and recipes on this site contains alcohol. Excessive alcohol consumption can be harmful to your health and can impair your judgement. Not suitable for inviduals under the age of 21. Please drink responsibly.</p>
+                    
                 </div>
 
-                <!-- Ingredient List -->
-                <!-- <div class="Indredients">
-                    <p class="*">Meats</p>
-                    <div class="*">
-                        <input type="checkbox" id="i1">
-                        <label for="i1"> Eggs </label>
-                        <br>
-                        <input type="checkbox" id="i2">
-                        <label for="i2"> Beef </label>
-                        <br>
-                        <input type="checkbox" id="i3">
-                        <label for="i3"> Chicken </label>
-                        <br>
-                        <input type="checkbox" id="i4">
-                        <label for="i4"> Shrimp </label>
-                        <br>
-                        <input type="checkbox" id="i5">
-                        <label for="i5"> Pork </label>
-                        <br>
-                        <input type="checkbox" id="i6">
-                        <label for="i6"> Fish </label>
-                        <br>
-                        <input type="checkbox" id="i7">
-                        <label for="i7"> Crab </label>
-                        <br>
-                        <input type="checkbox" id="i8">
-                        <label for="i8"> Scallops </label>
-                    </div>
-                    <hr>
-                    <p class="*">Vegetables</p>
-                    <div class="*">
-                        <input type="checkbox" id="i1">
-                        <label for="i1"> Brocoli </label>
-                        <br>
-                        <input type="checkbox" id="i2">
-                        <label for="i2"> Carrots </label>
-                        <br>
-                        <input type="checkbox" id="i3">
-                        <label for="i3"> Onions </label>
-                        <br>
-                        <input type="checkbox" id="i4">
-                        <label for="i4"> Mushrooms </label>
-                        <br>
-                        <input type="checkbox" id="i5">
-                        <label for="i5"> Cabbage </label>
-                        <br>
-                        <input type="checkbox" id="i6">
-                        <label for="i6"> Green Beans </label>
-                        <br>
-                        <input type="checkbox" id="i7">
-                        <label for="i7"> Cucumbers </label>
-                        <br>
-                        <input type="checkbox" id="i8">
-                        <label for="i8"> Cauliflower </label>
-                    </div>
-                    <hr>
-                    <p class="*">Fruits</p>
-                    <div class="*">
-                        <input type="checkbox" id="i1">
-                        <label for="i1"> Apple </label>
-                        <br>
-                        <input type="checkbox" id="i2">
-                        <label for="i2"> Banana </label>
-                        <br>
-                        <input type="checkbox" id="i3">
-                        <label for="i3"> Strawberry </label>
-                        <br>
-                        <input type="checkbox" id="i4">
-                        <label for="i4"> Pineapples </label>
-                        <br>
-                        <input type="checkbox" id="i5">
-                        <label for="i5"> Peaches </label>
-                        <br>
-                        <input type="checkbox" id="i6">
-                        <label for="i6"> Watermelon </label>
-                        <br>
-                        <input type="checkbox" id="i7">
-                        <label for="i7"> Peaches </label>
-                        <br>
-                        <input type="checkbox" id="i8">
-                        <label for="i8"> Mango </label>
-                    </div>
-                    <hr>
-                    <p class="*">Grains</p>
-                    <div class="*">
-                        <input type="checkbox" id="i1">
-                        <label for="i1"> Rice </label>
-                        <br>
-                        <input type="checkbox" id="i2">
-                        <label for="i2"> Pasta </label>
-                        <br>
-                        <input type="checkbox" id="i3">
-                        <label for="i3"> Flour </label>
-                        <br>
-                        <input type="checkbox" id="i4">
-                        <label for="i4"> Bread </label>
-                        <br>
-                        <input type="checkbox" id="i5">
-                        <label for="i5"> Wheat </label>
-                        <br>
-                        <input type="checkbox" id="i6">
-                        <label for="i6"> Rye </label>
-                        <br>
-                        <input type="checkbox" id="i7">
-                        <label for="i7"> Brown Rice </label>
-                        <br>
-                        <input type="checkbox" id="i8">
-                        <label for="i8"> Quinoa </label>
-                    </div>
-                    <br>
-                    <br>
-                </div> --->
+           
 
             </div>
 
@@ -176,6 +71,26 @@
     </div>
 
     <!-- <main>
+    <!-- Modal -->
+<!-- Clicking this button will open the modal -->
+<!-- <button id="modal_opener">Click Me if you're over 21! I Don't Bite... 😛</button> -->
+
+<div class="modal" style="display: none">
+  <div class="overlay"></div>
+  <div class="modal_content">
+    <!-- Dynamic Section -->
+    <h2>Get outta here!</h2>
+    <iframe src="https://giphy.com/embed/KgdjfsAqun5HjYQCSE" width="343" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/water-hydrate-drinksomewater-KgdjfsAqun5HjYQCSE">via GIPHY</a></p>
+    <br>
+    <!-- End of Dynamic Section -->
+    <button title="Close" class="close_modal">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Main script Import -->
+<script src="assets/js/modal.js"></script>
     </main> -->
 
     <!-- Javascript Assets -->
