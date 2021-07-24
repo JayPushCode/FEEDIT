@@ -66,7 +66,6 @@ function fetchDrinksData() {
             return response.json();
         })
         .then((data) => {
-            console.log(data.drinks)
             let drinks = data.drinks
             console.log(drinks)
             let html = drinks.map((data) => {
@@ -76,21 +75,21 @@ function fetchDrinksData() {
                       <h1 class="title">${data.strDrink}</h1>
                     </div>
                     <div class="data-details">
-                      <p class="data">Ingredient 1: ${data.strMeasure1}: ${data.strIngrredient1}</p>
-                      <p class="data">Ingredient 2: ${data.strMeasure2}: ${data.strIngrredient2}</p>
-                      <p class="data">Ingredient 3: ${data.strMeasure3}: ${data.strIngrredient3}</p>
-                      <p class="data">Ingredient 4: ${data.strMeasure4}: ${data.strIngrredient4}</p>
-                      <p class="data">Ingredient 5: ${data.strMeasure5}: ${data.strIngrredient5}</p>
-                      <p class="data">Ingredient 6: ${data.strMeasure6}: ${data.strIngrredient6}</p>
-                      <p class="data">Ingredient 7: ${data.strMeasure7}: ${data.strIngrredient7}</p>
-                      <p class="data">Ingredient 8: ${data.strMeasure8}: ${data.strIngrredient8}</p>
-                      <p class="data">Ingredient 9: ${data.strMeasure9}: ${data.strIngrredient9}</p>
-                      <p class="data">Ingredient 10: ${data.strMeasure10}: ${data.strIngrredient10}</p>
-                      <p class="data">Ingredient 11: ${data.strMeasure11}: ${data.strIngrredient11}</p>
-                      <p class="data">Ingredient 12: ${data.strMeasure12}: ${data.strIngrredient12}</p>
-                      <p class="data">Ingredient 13: ${data.strMeasure13}: ${data.strIngrredient13}</p>
-                      <p class="data">Ingredient 14: ${data.strMeasure14}: ${data.strIngrredient14}</p>
-                      <p class="data">Ingredient 15: ${data.strMeasure15}: ${data.strIngrredient15}</p>
+                      <p class="data">Ingredient 1: ${data.strMeasure1}: ${data.strIngredient1}</p>
+                      <p class="data">Ingredient 2: ${data.strMeasure2}: ${data.strIngredient2}</p>
+                      <p class="data">Ingredient 3: ${data.strMeasure3}: ${data.strIngredient3}</p>
+                      <p class="data">Ingredient 4: ${data.strMeasure4}: ${data.strIngredient4}</p>
+                      <p class="data">Ingredient 5: ${data.strMeasure5}: ${data.strIngredient5}</p>
+                      <p class="data">Ingredient 6: ${data.strMeasure6}: ${data.strIngredient6}</p>
+                      <p class="data">Ingredient 7: ${data.strMeasure7}: ${data.strIngredient7}</p>
+                      <p class="data">Ingredient 8: ${data.strMeasure8}: ${data.strIngredient8}</p>
+                      <p class="data">Ingredient 9: ${data.strMeasure9}: ${data.strIngredient9}</p>
+                      <p class="data">Ingredient 10: ${data.strMeasure10}: ${data.strIngredient10}</p>
+                      <p class="data">Ingredient 11: ${data.strMeasure11}: ${data.strIngredient11}</p>
+                      <p class="data">Ingredient 12: ${data.strMeasure12}: ${data.strIngredient12}</p>
+                      <p class="data">Ingredient 13: ${data.strMeasure13}: ${data.strIngredient13}</p>
+                      <p class="data">Ingredient 14: ${data.strMeasure14}: ${data.strIngredient14}</p>
+                      <p class="data">Ingredient 15: ${data.strMeasure15}: ${data.strIngredient15}</p>
                     </div>
                     <div class="instructions">
                       <p class="data">Instructions: ${data.strInstructions}</p>
