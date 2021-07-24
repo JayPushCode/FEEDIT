@@ -9,171 +9,36 @@
     <!-- CSS Assets -->
     <link rel="stylesheet" href="./assets/css/foundation.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<!-- Header Semantic Code -->
+<!-- Semantic Code -->
 
 <body>
-
     <header id="site-header-text">
         <h1>It's Cooking Time!!!</h1>
     </header>
-
-
     <div id="sitemain">
-
         <section class="ingredients_section">
-
             <div id="recipe-sidebar">
-
                 <!-- Search Area with the search bar and buttons -->
                 <div id="searchArea">
                     <br>
                     <p><strong>Enter something you're craving here:</strong></p>
                     <input id="foodSearch" type="text" placeholder="What's Your Craving?..." class="w-100">
                     <br>
-
                     <div id="btnSection">
                         <button id="cook" class="button button-rounded-hover"> Show Me Recipes </button>
                         <button class="*"><a href="drinks.html">Let's Drink!!</a></button>
                     </div>
-                    
                 </div>
-
-                <!-- This area is below the search area -->
-
+                <!-- This section is below the search area -->
                 <hr>
-
-                <!-- Ingredient List -->
-                <!-- <div class="Indredients">
-                    <p class="*">Meats</p>
-                    <div class="*">
-                        <input type="checkbox" id="i1">
-                        <label for="i1"> Eggs </label>
-                        <br>
-                        <input type="checkbox" id="i2">
-                        <label for="i2"> Beef </label>
-                        <br>
-                        <input type="checkbox" id="i3">
-                        <label for="i3"> Chicken </label>
-                        <br>
-                        <input type="checkbox" id="i4">
-                        <label for="i4"> Shrimp </label>
-                        <br>
-                        <input type="checkbox" id="i5">
-                        <label for="i5"> Pork </label>
-                        <br>
-                        <input type="checkbox" id="i6">
-                        <label for="i6"> Fish </label>
-                        <br>
-                        <input type="checkbox" id="i7">
-                        <label for="i7"> Crab </label>
-                        <br>
-                        <input type="checkbox" id="i8">
-                        <label for="i8"> Scallops </label>
-                    </div>
-                    <hr>
-                    <p class="*">Vegetables</p>
-                    <div class="*">
-                        <input type="checkbox" id="i1">
-                        <label for="i1"> Brocoli </label>
-                        <br>
-                        <input type="checkbox" id="i2">
-                        <label for="i2"> Carrots </label>
-                        <br>
-                        <input type="checkbox" id="i3">
-                        <label for="i3"> Onions </label>
-                        <br>
-                        <input type="checkbox" id="i4">
-                        <label for="i4"> Mushrooms </label>
-                        <br>
-                        <input type="checkbox" id="i5">
-                        <label for="i5"> Cabbage </label>
-                        <br>
-                        <input type="checkbox" id="i6">
-                        <label for="i6"> Green Beans </label>
-                        <br>
-                        <input type="checkbox" id="i7">
-                        <label for="i7"> Cucumbers </label>
-                        <br>
-                        <input type="checkbox" id="i8">
-                        <label for="i8"> Cauliflower </label>
-                    </div>
-                    <hr>
-                    <p class="*">Fruits</p>
-                    <div class="*">
-                        <input type="checkbox" id="i1">
-                        <label for="i1"> Apple </label>
-                        <br>
-                        <input type="checkbox" id="i2">
-                        <label for="i2"> Banana </label>
-                        <br>
-                        <input type="checkbox" id="i3">
-                        <label for="i3"> Strawberry </label>
-                        <br>
-                        <input type="checkbox" id="i4">
-                        <label for="i4"> Pineapples </label>
-                        <br>
-                        <input type="checkbox" id="i5">
-                        <label for="i5"> Peaches </label>
-                        <br>
-                        <input type="checkbox" id="i6">
-                        <label for="i6"> Watermelon </label>
-                        <br>
-                        <input type="checkbox" id="i7">
-                        <label for="i7"> Peaches </label>
-                        <br>
-                        <input type="checkbox" id="i8">
-                        <label for="i8"> Mango </label>
-                    </div>
-                    <hr>
-                    <p class="*">Grains</p>
-                    <div class="*">
-                        <input type="checkbox" id="i1">
-                        <label for="i1"> Rice </label>
-                        <br>
-                        <input type="checkbox" id="i2">
-                        <label for="i2"> Pasta </label>
-                        <br>
-                        <input type="checkbox" id="i3">
-                        <label for="i3"> Flour </label>
-                        <br>
-                        <input type="checkbox" id="i4">
-                        <label for="i4"> Bread </label>
-                        <br>
-                        <input type="checkbox" id="i5">
-                        <label for="i5"> Wheat </label>
-                        <br>
-                        <input type="checkbox" id="i6">
-                        <label for="i6"> Rye </label>
-                        <br>
-                        <input type="checkbox" id="i7">
-                        <label for="i7"> Brown Rice </label>
-                        <br>
-                        <input type="checkbox" id="i8">
-                        <label for="i8"> Quinoa </label>
-                    </div>
-                    <br>
-                    <br>
-                </div> --->
-
             </div>
-
         </section>
-
-
-        <div class="border" id="recipe-results-container">
-
-        </div>
-
+        <div class="border" id="recipe-results-container"></div>
     </div>
-
-    <!-- <main>
-    </main> -->
-
-    <!-- Javascript Assets -->
+    <!-- Javascript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <script src="assets/js/foundation.js"></script>
