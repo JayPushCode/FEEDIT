@@ -6,7 +6,7 @@ const drinkEl = $("#drink");
 var foodSearch = $("#foodSearch");
 var food = "popular";
 var drinkSearch = $("#drinksSearch");
-var drink = "";
+var drink = "Gin";
 
 
 // Recipe API
@@ -104,7 +104,7 @@ function fetchDrinksData() {
             console.log(error);
         });
 }
-// fetchDrinksData();
+fetchDrinksData();
 
 // Drinks event listener
 $("#drink").click(function(event) {
