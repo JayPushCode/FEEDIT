@@ -17,64 +17,40 @@ function fetchData() {
             }
             return response.json();
         })
-
         .then((data) => {
             console.log(data.hits);
             const html = data.hits
                 .map((data) => {
                     return ` <div class="item">
-
                     <div id="imgBx"> 
-                       
-                        <img id="resultImg" src=${
-                          data.recipe.image
-                        } alt="Food Image"</img>
-
+                        <img id="resultImg" src=${data.recipe.image} alt="Food Image"</img>
                         <h1 class="title">${data.recipe.label}</h1>
-
-                        <a class="view-btn" target="_blank" href="${
-                          data.recipe.url
-                        }">View Recipe</a>
-
+                        <a class="view-btn" target="_blank" href="${data.recipe.url}">View Recipe</a>
                     </div>
 
                     <div class="data-details">
-                    
-                    <p class="data">Calories: ${data.recipe.calories.toFixed(
-                      2
-                    )}</p>
-
-                    <p class="data">Diet label: ${
-                      data.recipe.dietLabels.length > 0
-                        ? data.recipe.dietLabels
-                        : "No Data Found"
-                    }</p>
-
-                    <p class="data">Health labels: ${
-                      data.recipe.healthLabels
-                    }</p>
-
+                    <p class="data">Calories: ${data.recipe.calories.toFixed(2)}</p>
+                    <p class="data">Diet label: ${data.recipe.dietLabels.length > 0 ? data.recipe.dietLabels : "No Data Found"}</p>
+                    <p class="data">Health labels: ${data.recipe.healthLabels}</p>
                     </div>
 
                 </div>`;
                 })
-
                 .join("");
             document
                 .getElementById("results-container")
                 .insertAdjacentHTML("afterbegin", html);
         })
-
         .catch((error) => {
             console.log(error);
         });
 }
 
 // Recipe event listener
-$("#cook").click(function (event) {
-  event.preventDefault();
-  food = foodSearch.val();
-  fetchData();
+$("#cook").click(function(event) {
+    event.preventDefault();
+    food = foodSearch.val();
+    fetchRecipeData();
 });
 
 
@@ -82,25 +58,24 @@ $("#cook").click(function (event) {
 
 // Drinks API
 function fetchDrinksData() {
-  // https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
-  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita`)
-
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      return response.json();
-    })
-
-    .then((data) => {
-      console.log(data.drinks);
-
-      for (var a = 0; a <data.drinks.length; a++) {
-          console.log(a);
-      }
-      
-    });
-
+    // https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
+    `)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Failed to fetch data");
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data.drinks);
+        });
 }
 fetchDrinksData();
 
+// Recipe event listener
+$("#cook").click(function(event) {
+    event.preventDefault();
+    food = foodSearch.val();
+    fetchRecipeData();
+});
