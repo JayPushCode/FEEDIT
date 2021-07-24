@@ -22,7 +22,6 @@ function fetchRecipeData() {
             return response.json();
         })
         .then((data) => {
-            console.log(data.hits);
             const html = data.hits
                 .map((data) => {
                     return ` <div class="item">
@@ -59,8 +58,7 @@ $("#cook").click(function(event) {
 // Drinks API
 function fetchDrinksData() {
     // https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
-    `)
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Failed to fetch data");
@@ -68,7 +66,44 @@ function fetchDrinksData() {
             return response.json();
         })
         .then((data) => {
-            console.log(data.drinks);
+            console.log(data.drinks)
+            let drinks = data.drinks
+            console.log(drinks)
+            let html = drinks.map((data) => {
+                    return ` <div class="item">
+                    <div id="imgBx"> 
+                      <img id="resultImg" src=${data.strDrinkThumb} alt="Drink Image"</img>
+                      <h1 class="title">${data.strDrink}</h1>
+                    </div>
+                    <div class="data-details">
+                      <p class="data">Ingredient 1: ${data.strMeasure1}: ${data.strIngrredient1}</p>
+                      <p class="data">Ingredient 2: ${data.strMeasure2}: ${data.strIngrredient2}</p>
+                      <p class="data">Ingredient 3: ${data.strMeasure3}: ${data.strIngrredient3}</p>
+                      <p class="data">Ingredient 4: ${data.strMeasure4}: ${data.strIngrredient4}</p>
+                      <p class="data">Ingredient 5: ${data.strMeasure5}: ${data.strIngrredient5}</p>
+                      <p class="data">Ingredient 6: ${data.strMeasure6}: ${data.strIngrredient6}</p>
+                      <p class="data">Ingredient 7: ${data.strMeasure7}: ${data.strIngrredient7}</p>
+                      <p class="data">Ingredient 8: ${data.strMeasure8}: ${data.strIngrredient8}</p>
+                      <p class="data">Ingredient 9: ${data.strMeasure9}: ${data.strIngrredient9}</p>
+                      <p class="data">Ingredient 10: ${data.strMeasure10}: ${data.strIngrredient10}</p>
+                      <p class="data">Ingredient 11: ${data.strMeasure11}: ${data.strIngrredient11}</p>
+                      <p class="data">Ingredient 12: ${data.strMeasure12}: ${data.strIngrredient12}</p>
+                      <p class="data">Ingredient 13: ${data.strMeasure13}: ${data.strIngrredient13}</p>
+                      <p class="data">Ingredient 14: ${data.strMeasure14}: ${data.strIngrredient14}</p>
+                      <p class="data">Ingredient 15: ${data.strMeasure15}: ${data.strIngrredient15}</p>
+                    </div>
+                    <div class="instructions">
+                      <p class="data">Instructions: ${data.strInstructions}</p>
+                    </div>
+                </div>`;
+                })
+                .join("");
+            document
+                .getElementById("results-container")
+                .insertAdjacentHTML("afterbegin", html);
+        })
+        .catch((error) => {
+            console.log(error);
         });
 }
 fetchDrinksData();
@@ -78,11 +113,4 @@ $("#drink").click(function(event) {
     event.preventDefault();
     drink = drinkSearch.val();
     fetchDrinksData();
-});
-
-// Recipe event listener
-$("#cook").click(function(event) {
-    event.preventDefault();
-    food = foodSearch.val();
-    fetchRecipeData();
 });
