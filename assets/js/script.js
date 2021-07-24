@@ -4,7 +4,7 @@ const cookEl = $("#cook");
 const takeoutEl = $("#submitBtn");
 const drinkEl = $("#drink");
 var foodSearch = $("#foodSearch");
-var food = "";
+var food = "popular";
 
 // Recipe API
 function fetchData() {
@@ -46,13 +46,16 @@ function fetchData() {
         });
 }
 
+// This preloads the website with recipes with the search criteria of popular recipes
+// This keeps page filled instead of empty
+fetchData();
+
 // Recipe event listener
 $("#cook").click(function(event) {
     event.preventDefault();
     food = foodSearch.val();
-    fetchRecipeData();
+    fetchData();
 });
-
 
 
 
