@@ -53,9 +53,7 @@ function clearSearch() {
 
 // Recipe API
 function fetchData() {
-
     fetch(`https://api.edamam.com/search?q=${food}&app_id=${recipeId}&app_key=${recipeKey}&from=0&to=20`)
-        
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Failed to fetch data");
@@ -89,10 +87,6 @@ function fetchData() {
             console.log(error);
         });
 }
-
-// This preloads the website with recipes with the search criteria of popular recipes
-// This keeps page filled instead of empty
-// It will get overwritten when users enter a a new food to search
 fetchData();
 
 // Recipe event listener
@@ -109,9 +103,7 @@ $("#cook").click(function(event) {
 
 // Drinks API
 function fetchDrinksData() {
-    // https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
     drinkURL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + drink;
-
     fetch(drinkURL)
         .then((response) => {
             if (!response.ok) {
@@ -162,3 +154,5 @@ $("#drink").click(function(event) {
     localStorage.setItem("search",JSON.stringify(searchHistory));
     renderSearchHistory();
 });
+
+// Local storage
