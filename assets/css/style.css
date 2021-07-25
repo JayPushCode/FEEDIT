@@ -133,9 +133,20 @@ and the view button */
     font-size: 25px;
     width: 200px;
     border-radius: 20px;
+    background: floralwhite;
+    color: darkblue;
 }
 
-
+#history-container h2 {
+    font-size: 25px;
+    font-weight: 600;
+    color: cornflowerblue;
+    background: floralwhite;
+    width: 285px;
+    text-align: center;
+    border-radius: 25px;
+    border-style: solid;
+}
 
 .flex-container {
     display: flex;
