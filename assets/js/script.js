@@ -6,8 +6,50 @@ const drinkEl = $("#drink");
 var foodSearch = $("#foodSearch");
 var food = "popular";
 var drinkSearch = $("#drinksSearch");
-var drink = "Gin";
+var drink = "";
 
+
+// past search
+var historyEl = document.getElementById("history");  
+var clearEL = document.getElementById("clear");
+let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
+
+function renderSearchHistory() {
+    historyEl.innerHTML = "";
+    for (let i = 0; i < searchHistory.length; i++) {
+        const searchItem = document.createElement("input");
+        // <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com"></input>
+        searchItem.setAttribute("type", "button");
+        searchItem.setAttribute("onclick", "reSearch(this)");
+        searchItem.setAttribute("style", "margin-bottom: 10px;")
+        searchItem.setAttribute("class", "form-control d-block bg-grey");
+        searchItem.setAttribute("id", "historyItem");
+        searchItem.setAttribute("value", searchHistory[i]);
+
+        historyEl.append(searchItem);
+    }
+}
+
+function reSearch(ele) {
+    let lastSearch = ele.value;
+    console.log("this is a test");
+    console.log(lastSearch);
+    food = lastSearch;
+    drink = lastSearch;
+
+    fetchData();
+    fetchDrinksData();
+
+}
+
+// This clears the search history when refreshing or going to a different page
+// not perfect but functional
+clearSearch();
+
+function clearSearch() {
+    searchHistory = [];
+    renderSearchHistory();
+}
 
 // Recipe API
 function fetchData() {
@@ -58,9 +100,12 @@ $("#cook").click(function(event) {
     event.preventDefault();
     food = foodSearch.val();
     fetchData();
+    
+    // Search history
+    searchHistory.push(food);
+    localStorage.setItem("search",JSON.stringify(searchHistory));
+    renderSearchHistory();
 });
-
-
 
 // Drinks API
 function fetchDrinksData() {
@@ -111,4 +156,9 @@ $("#drink").click(function(event) {
     event.preventDefault();
     drink = drinkSearch.val();
     fetchDrinksData();
+
+    // Search history
+    searchHistory.push(drink);
+    localStorage.setItem("search",JSON.stringify(searchHistory));
+    renderSearchHistory();
 });
