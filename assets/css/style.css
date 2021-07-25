@@ -116,6 +116,24 @@ and the view button */
     padding: 20px 40px 20px 20px;
 }
 
+/* This customizes the search history area*/
+#history-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#history {
+    display: flex;
+    flex-direction: column;
+}
+
+/* This customizes the buttons of the history search */
+#historyItem {
+    font-size: 25px;
+    width: 200px;
+    border-radius: 20px;
+}
 
 
 
