@@ -9,11 +9,9 @@ var drinkSearch = $("#drinksSearch");
 var drink = "";
 
 // past search history variable
-var historyEl = document.getElementById("history");  
+var historyEl = document.getElementById("history");
 var clearEL = document.getElementById("clear");
 let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
-
-
 
 // This renders the search history
 function renderSearchHistory() {
@@ -34,13 +32,10 @@ function renderSearchHistory() {
 
 function reSearch(ele) {
     let lastSearch = ele.value;
-    console.log("this is a test");
-    console.log(lastSearch);
     food = lastSearch;
     drink = lastSearch;
     fetchData();
     fetchDrinksData();
-
 }
 
 // This clears the search history when refreshing or going to a different page
@@ -51,7 +46,6 @@ function clearSearch() {
     searchHistory = [];
     renderSearchHistory();
 }
-
 
 // Recipe API
 function fetchData() {
@@ -77,7 +71,6 @@ function fetchData() {
                     <p class="data">Diet label: ${data.recipe.dietLabels.length > 0 ? data.recipe.dietLabels : "No Data Found"}</p>
                     <p class="data">Health labels: ${data.recipe.healthLabels}</p>
                     </div>
-
                 </div>`;
                 })
                 .join("");
@@ -103,9 +96,6 @@ $("#cook").click(function(event) {
     renderSearchHistory();
 });
 
-
-
-
 // Drinks API
 function fetchDrinksData() {
     drinkURL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + drink;
@@ -118,7 +108,6 @@ function fetchDrinksData() {
         })
         .then((data) => {
             let drinks = data.drinks
-            console.log(drinks)
             let html = drinks.map((data) => {
                     let ingredients = '';
                     let ingredientNum = 1;
@@ -165,5 +154,3 @@ $("#drink").click(function(event) {
     localStorage.setItem("search", JSON.stringify(searchHistory));
     renderSearchHistory();
 });
-
-// Local storage
