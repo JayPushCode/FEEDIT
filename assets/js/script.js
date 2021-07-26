@@ -38,7 +38,6 @@ function reSearch(ele) {
     console.log(lastSearch);
     food = lastSearch;
     drink = lastSearch;
-
     fetchData();
     fetchDrinksData();
 
